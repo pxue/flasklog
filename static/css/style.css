@@ -19,6 +19,8 @@ body article {
 body article p {
   color: #111;
   text-align: justify;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 body article img {
   margin: auto;
@@ -138,9 +140,4 @@ blockquote h1:before {
 }
 blockquote h1:after {
   content: "\201D";
-}
-pre {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 0.4em;
 }
