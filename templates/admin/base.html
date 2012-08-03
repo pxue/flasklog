@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{%- block topbar -%}
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="{{url_for('admin.create')}}" class="btn btn-primary">Create new post</a>
+        </div>
+    </div>
+</div>
+{%- endblock -%}

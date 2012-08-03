@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="home">
+    <article>
+        <header>
+        <h1>My name is Paul Xue. I'm a student at
+            University of Waterloo.
+            <a href="http://twitter.com/pxue"> Tweet </a>me.
+            <a href="http://www.linkedin.com/in/paulxue"> Hire </a>me.
+            This is my <a href="https://github.com/pxue"> Github</a>.
+        </h1>
+        </header>
+        <ul>
+        {% if not offline %}
+            {% for post in page.items %}
+            <li>
+                <time>{{ post.date.strftime('%d %b %Y') }}</time>
+                <a href="/posts/{{ post.permalink }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+        {% endif %}
+        </ul>
+        <footer>
+        <nav>
+            {% if page.next %} <a href="{{ url_for('posts.index', start=page.next) }}">{% endif %}
+                <div id="prev" {% if page.next %}class="enabled"{% endif %}>Previous</div></a>
+            <div id="divider"></div>
+            {% if page.prev %}<a href="{{ url_for('posts.index', start=page.prev) }}">{% endif %}
+                <div id="next" {% if page.prev %}class="enabled"{% endif %}>Next</div> </a>
+        </nav>
+        </footer>
+    </article>
+</section>
+{% endblock %}

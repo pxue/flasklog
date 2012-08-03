@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+{% block content %}
+<form action="" method="POST" accept-charset="utf-8"
+    enctype="multipart/form-data" class="form-horizontal">
+    <fieldset>
+
+        {{ form.csrf_token }}
+
+        <div class="control-group">
+            {{ form.title.label(class="control-label") }}
+            <div class="controls">{{ form.title(value=post.title)}} </div>
+        </div>
+        <div class="control-group">
+            {{ form.permalink.label(class="control-label") }}
+            <div class="controls">{{ form.permalink(value=post.permalink )}}</div>
+        </div>
+        <div class="control-group">
+            {{ form.author.label(class="control-label") }}
+            <div class="controls">{{ form.author(value=post.author )}}</div>
+        </div>
+        <div class="control-group">
+            {{ form.content.label(class="control-label") }}
+            <div class="controls">{{ form.content(style="width:679px; height:329px")}} </div>
+        </div>
+
+        <div class="form-actions">
+            {{ form.submit(class="btn btn-primary") }}
+            <a href="{{ url_for("admin.index") }}" class="btn">Cancel</a>
+        </div>
+    </fieldset>
+
+</form>
+{% endblock %}

@@ -1,0 +1,5 @@
+COUCHDB_SERVER="couchdb-server-location"
+COUCHDB_DATABASE="your-data-base"
+OFFLINE=False
+ADMIN={'user':'admin-user', 'pass':'admin-pass-hash-sha256'}
+SECRET_KEY="some-secret-key"

@@ -1,0 +1,146 @@
+html,
+body {
+  background: #fafafa;
+}
+body {
+  font: 1em/1.45em HelveticaNeue, HelveticaNeue, Helvetica Neue, Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  margin: 0;
+}
+body article {
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  padding-top: 20px;
+  border-left: solid 1px #eee;
+}
+body article p {
+  color: #111;
+  text-align: justify;
+}
+body article img {
+  margin: auto;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  max-width: 600px;
+  display: block;
+}
+h1,
+h2,
+h3 {
+  font-family: HelveticaNeue, HelveticaNeue, Helvetica Neue, Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+  line-height: 1.1em;
+}
+a {
+  text-decoration: none;
+  color: #007aed;
+}
+h1 {
+  font-size: 2.125em;
+  margin-bottom: 0.765em;
+  margin-top: 34px;
+}
+ol {
+  margin: 0;
+  padding: 0;
+  margin-left: 1.25em;
+}
+ul {
+  list-style-position: outside;
+  padding-left: 11px;
+}
+li {
+  line-height: 23px;
+}
+li time {
+  verticle-align: top;
+  margin-right: 20px;
+  margin-left: -10px;
+  display: inline-block;
+  width: 120px;
+  text-align: right;
+  color: #ccc;
+}
+li a {
+  verticle-align: top;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+}
+.home h1,
+.admin h1 {
+  padding-left: 170px;
+}
+.home li,
+.admin li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+#next, #prev{
+  font-size: 16px;
+  line-height: 40px;
+  zoom: 1;
+  opacity: .2;
+}
+
+#prev{
+  width: 73px;
+  float: left;
+  text-align: right;
+  margin-right: 25px;
+  margin-left: 191px;
+}
+
+#next{
+  width: 40px;
+  float: right;
+  text-align: left;
+  margin-left: 25px;
+  margin-right: 245px;
+}
+
+#divider{
+  height: 40px;
+  border-left: 1px solid #CCC;
+  float: left;
+}
+
+nav{
+    margin-top: 100px;
+}
+
+#next.enabled,
+#prev.enabled{
+  zoom: 1;
+  opacity: 1;
+  font-weight: bold;
+}
+
+
+blockquote {
+  margin: 0;
+}
+blockquote h1 {
+  padding: 20px 40px 20px 60px;
+  position: relative;
+  background-color: #eee;
+  border-radius: 10px;
+}
+blockquote h1:before {
+  content: "\201C";
+}
+blockquote h1:after {
+  content: "\201D";
+}
+pre {
+  border: 1px solid #ddd;
+  background-color: #eef;
+  padding: 0 0.4em;
+}
