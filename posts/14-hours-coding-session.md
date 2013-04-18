@@ -135,9 +135,11 @@ about a user.
 Being lazy, I'm using a module called Nodestagram to do all the api calls for
 me. So the actual code to generate the json for my pictures are very simple:
 
-    instagram.user.self({access_token:###, count:20}, function(images, err, pagination){
-        res.render('index', {'images':images});
-    })
+    instagram.user.self({access_token:###, count:20},
+        function(images, err, pagination){
+            res.render('index', {'images':images});
+        }
+    );
 
 That's it, make good time too!
 
@@ -168,13 +170,21 @@ on the server side:
 basically the code is almost the same with an extra POST function to accomodate
 the message being sent to server.
 
-    20:15 EST
+20:15 EST
 
 At this point, I realized long polling is not a very good way of doing this,
 because if I want to implement nickserver this is going to lag considerably and
 I would have to implement multiple http requests from the client.
 
 Next I'm going to look into how to use Socket.IO
+
+<?prettify?>
+<pre class="prettyprint">
+<code>
+def somefun(param1=""):
+    print "hello world!"
+</code>
+</pre>
 
 
 

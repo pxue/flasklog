@@ -2,7 +2,7 @@ I started this blog over the xmas holidays as a side project. Getting to this
 point took me two weeks of half assed research and even more half assed drunk
 programming.
 
-For the past two years I've used wordpress, I've messed around with druple and
+For the past two years I've usegtd wordpress, I've messed around with druple and
 dated it's ugly cousin joomla for a while too. Every time I lie to myself, and
 say that I will sit down and learn some php, so I can have a pinch of an idea 
 what the hell I'm doing with wordpress customization (I mean wth is 
@@ -12,7 +12,7 @@ things.
 Don't get me wrong, I'm sure wordpress in the right hands can be a powerful
 tool of destruction (case in point: pine cone + rubber bands + MacGyver).
 
-![pine cone](/images/mcgyver_cone.png)
+![pine cone](/static/images/mcgyver_cone.png)
 
 It's like a bad break up, in the end of it all I'm the one
 apologizing: No honey, it's not you, it's me.

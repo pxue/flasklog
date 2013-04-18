@@ -2,33 +2,82 @@
 {% block content %}
 <section class="home">
     <article>
+        <aside id="avatar">
+            <a href="/">
+                <image id="logo" src="{{ url_for('static', folder='images', filename="images/logo_small.jpg" )}}"></image>
+            </a>
+        </aside>
         <header>
-        <h1>My name is Paul Xue. I'm a student at
-            University of Waterloo.
-            <a href="http://twitter.com/pxue"> Tweet </a>me.
-            <a href="http://www.linkedin.com/in/paulxue"> Hire </a>me.
-            This is my <a href="https://github.com/pxue"> Github</a>.
-        </h1>
+            <h1>My name is Paul Xue. I'm a student at
+                University of Waterloo.
+                <a href="http://twitter.com/pxue"> Tweet </a>me.
+                <a href="http://www.linkedin.com/in/paulxue"> Hire </a>me.
+                This is my <a href="https://github.com/pxue"> Github</a>.
+            </h1>
         </header>
-        <ul>
-        {% if not offline %}
-            {% for post in page.items %}
-            <li>
-                <time>{{ post.date.strftime('%d %b %Y') }}</time>
-                <a href="/posts/{{ post.permalink }}">{{ post.title }}</a>
-            </li>
-            {% endfor %}
-        {% endif %}
-        </ul>
-        <footer>
-        <nav>
-            {% if page.next %} <a href="{{ url_for('posts.index', start=page.next) }}">{% endif %}
-                <div id="prev" {% if page.next %}class="enabled"{% endif %}>Previous</div></a>
-            <div id="divider"></div>
-            {% if page.prev %}<a href="{{ url_for('posts.index', start=page.prev) }}">{% endif %}
-                <div id="next" {% if page.prev %}class="enabled"{% endif %}>Next</div> </a>
-        </nav>
-        </footer>
+        <!--I feel like this should be in the header tag-->
+        <div id="header-nav">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Blog</a></li>
+                    <li><a href="#">Sections</a></li>
+                    <li><a href="#">Archive</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
     </article>
+</section>
+<section class="articles">
+    {% for post in posts.items %}
+    <article>
+        {{ post.permalink|parsemd|safe }}
+    </article>
+    <footer class="article-meta">
+        <div>
+            <span class="date">{{ post.create_date|datetime }}</span>
+            <span class="delimiter">/</span>
+            <span class="author">
+                <span class="delimiter"></span>
+                {{ post.author }}
+            </span>
+        </div>
+    </footer>
+    <nav class="page pagination">
+        <div class="content-wrapper">
+            <ul>
+                <li class="current">
+                Page {{ posts.page }} of {{ posts.pages }}
+                </li>
+                <li class="next">
+                    {% if posts.has_next %}
+                    <a href="{{ url_for('frontend.index', page = posts.next_num )}}">
+                        Older
+                        <i class="icon-chevron-right"></i>
+                    </a>
+                    {% else %}
+                    <span>
+                        Older
+                        <i class="icon-chevron-right"></i>
+                    </span>
+                    {% endif %} 
+                </li>
+                <li class="prev">
+                    {% if posts.has_prev %}
+                    <a href="{{ url_for('frontend.index', page = posts.prev_num )}}">
+                        <i class="icon-chevron-left"></i>
+                        Newer
+                    </a>
+                    {% else %}
+                    <span>
+                        <i class="icon-chevron-left"></i>
+                        Newer
+                    </span>
+                    {% endif %} 
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% endfor %}
 </section>
 {% endblock %}

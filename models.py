@@ -1,33 +1,21 @@
-import datetime
-from flask.ext.couchdb import Document, TextField, BooleanField, \
-        DateTimeField, ViewField
-from flask import url_for
+from flask.ext.sqlalchemy import SQLAlchemy
 
-class Post(Document):
+db = SQLAlchemy()
 
-    author = TextField()
-    title = TextField()
-    published = BooleanField(default=True)
-    permalink = TextField()
-    date = DateTimeField(default=datetime.datetime.now)
+class Post(db.Model):
+    __tablename__ = 'posts'
 
-    PostsByDate = ViewField( 'Post', '''\
-    function(doc){
-        if(doc.model_type === 'Post' && doc.date){
-            emit(doc.date, doc)
-        }
-    }''', descending=True)
+    pid = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.Text)
+    author = db.Column(db.Text)
+    published = db.Column(db.Boolean)
+    permalink = db.Column(db.Text)
+    create_date = db.Column(db.DateTime)
 
-    by_permalink = ViewField('Post', '''\
-    function(doc){
-        if(doc.model_type === 'Post'){
-            emit(doc.permalink, doc)
-        }
-    }
-    ''')
+    def __init__(self):
+        pass
 
-    def get_permalink(self):
-        return url_for('posts', kwargs={"permalink": self.permalink})
+    def __repr__(self):
+        return '<Post %r>' % self.title
+    
 
-    def __unicode__(self):
-        return self.title

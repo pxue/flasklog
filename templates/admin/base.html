@@ -1,11 +1,10 @@
 {% extends "base.html" %}
+{% block extracss %}
+<!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" />-->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" />
+{% endblock %}
 
-{%- block topbar -%}
-<div class="navbar">
-    <div class="navbar-inner">
-        <div class="container">
-            <a href="{{url_for('admin.create')}}" class="btn btn-primary">Create new post</a>
-        </div>
-    </div>
-</div>
-{%- endblock -%}
+<li><a href="#">Create new post</a></li>
+
+{% block extrajs %}
+{% endblock %}

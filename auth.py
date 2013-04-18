@@ -1,26 +1,27 @@
-from functools import wraps
-from flask import request, Response
-from settings import ADMIN
+import hashlib
+from flask.ext.login import LoginManager, UserMixin
+from settings import Config
 
-def check_auth(username, password):
-    """This function is called to check if a username /
-    password combination is valid.  """
-    import hashlib
-    s = hashlib.sha256(password).hexdigest()
-    return username == ADMIN.get('user') and s == ADMIN.get('pass')
+login_manager = LoginManager()
+login_manager.login_view = "frontend.login"
+login_manager.login_message = u"Please log in to access this page."
 
-def authenticate():
-    """Sends a 401 response that enables basic auth"""
-    return Response(
-    'Could not verify your access level for that URL.\n'
-    'You have to login with proper credentials', 401,
-    {'WWW-Authenticate': 'Basic realm="Login Required"'})
+@login_manager.user_loader
+def load_user(username):
+    return USER_NAMES.get(str(username))
 
-def requires_auth(f):
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        auth = request.authorization
-        if not auth or not check_auth(auth.username, auth.password):
-            return authenticate()
-        return f(*args, **kwargs)
-    return decorated
+def hash_pass(password, salt):
+    salted_password = password + salt
+    return hashlib.sha256(salted_password).hexdigest()
+
+class User(UserMixin):
+    def __init__(self, username, password, salt, active=True):
+        self.username = username 
+        self.password = password
+        self.salt = salt
+        self.active = active
+
+    def get_id(self):
+        return self.username
+
+USER_NAMES = dict((v[0], User(*v)) for v in Config.ADMIN.itervalues())

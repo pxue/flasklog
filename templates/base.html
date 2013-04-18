@@ -2,12 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="{{ url_for('static', folder='css', filename='css/style.css')}}" />
-    <title>Paul's Blog</title>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Poly|PT+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css')}}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" />
+    {% block extracss %}{% endblock %}
+    <title>Paul Xue</title>
 </head>
 <body>
-    {% block topbar %}{% endblock %}
-    {% block content %}{% endblock %}
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+        <div class="page-container">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.fitvids.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/application.js') }}"></script>
+    {% block extrajs %}{% endblock %}
 </body>
 </html>

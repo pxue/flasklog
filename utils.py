@@ -1,20 +1,20 @@
-import markdown, codecs, os
+import os
+import codecs
+from datetime import datetime
+from markdown import markdown
 
 def get_md_content(permalink, ismd=True):
 
-    path = os.getcwd()+'/posts/'+permalink+'.md'
+    path = "%s/posts/%s.md" % (os.getcwd(), permalink)
     content = codecs.open(path, mode="r", encoding="utf-8").read()
-    if ismd: content = markdown.markdown(content)
 
-    return content
+    return markdown(content) if ismd else content
 
-def write_md_content(permalink, content):
-
-    path = os.getcwd()+'/posts/'+permalink+'.md'
-    print path, content
-    file = codecs.open(path, mode="w", encoding="utf-8")
-    file.write(content)
-    file.close()
-
-    return file
-
+def filter_datetime(date, fmt='%c'):
+    try:
+        date = datetime.strftime(date, "%B %d, %Y")
+    except Exception, e:
+        pass
+    
+    return date
+    

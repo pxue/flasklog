@@ -1,143 +1,270 @@
-html,
-body {
-  background: #fafafa;
+
+:focus {
+    outline: 0;
 }
-body {
-  font: 1em/1.45em HelveticaNeue, HelveticaNeue, Helvetica Neue, Arial, sans-serif;
-  font-style: normal;
-  font-variant: normal;
-  margin: 0;
-}
-body article {
-  display: block;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 10px;
-  padding-top: 20px;
-  border-left: solid 1px #eee;
-}
-body article p {
-  color: #111;
-  text-align: justify;
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-body article img {
-  margin: auto;
-  margin-top: 35px;
-  margin-bottom: 35px;
-  max-width: 600px;
-  display: block;
-}
+
+/* General
+ * -----------------------------------------------------------
+ */
 h1,
 h2,
 h3 {
-  font-family: HelveticaNeue, HelveticaNeue, Helvetica Neue, Arial, sans-serif;
-  font-weight: normal;
-  color: #333;
-  line-height: 1.1em;
+    font-weight: normal;
+    color: #333;
+    line-height: 1.1em;
 }
-a {
-  text-decoration: none;
-  color: #007aed;
-}
+
 h1 {
-  font-size: 2.125em;
-  margin-bottom: 0.765em;
-  margin-top: 34px;
-}
-ol {
-  margin: 0;
-  padding: 0;
-  margin-left: 1.25em;
-}
-ul {
-  list-style-position: outside;
-  padding-left: 11px;
-}
-li {
-  line-height: 23px;
-}
-li time {
-  verticle-align: top;
-  margin-right: 20px;
-  margin-left: -10px;
-  display: inline-block;
-  width: 120px;
-  text-align: right;
-  color: #ccc;
-}
-li a {
-  verticle-align: top;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 400px;
-}
-.home h1,
-.admin h1 {
-  padding-left: 170px;
-}
-.home li,
-.admin li {
-  margin-bottom: 10px;
-  list-style: none;
+    display: inline-block;
+    font-size: 52px;
+    font-weight: bold;
+    margin-bottom: 0.2em;
 }
 
-#next, #prev{
-  font-size: 16px;
-  line-height: 40px;
-  zoom: 1;
-  opacity: .2;
+a {
+    text-decoration: none;
+    color: #007aed;
 }
 
-#prev{
-  width: 73px;
-  float: left;
-  text-align: right;
-  margin-right: 25px;
-  margin-left: 191px;
+body {
+    /* too cheap to pay for legit font */
+    font-family: 'Poly', serif;
+    font-size: 20px;
+    background-color: #edebe8;
 }
-
-#next{
-  width: 40px;
-  float: right;
-  text-align: left;
-  margin-left: 25px;
-  margin-right: 245px;
-}
-
-#divider{
-  height: 40px;
-  border-left: 1px solid #CCC;
-  float: left;
-}
-
-nav{
-    margin-top: 100px;
-}
-
-#next.enabled,
-#prev.enabled{
-  zoom: 1;
-  opacity: 1;
-  font-weight: bold;
-}
-
 
 blockquote {
-  margin: 0;
+    margin: 0;
 }
+
 blockquote h1 {
-  padding: 20px 40px 20px 60px;
-  position: relative;
-  background-color: #eee;
-  border-radius: 10px;
+    padding: 20px 40px 20px 60px;
+    position: relative;
+    background-color: #eee;
+    border-radius: 10px;
 }
+
 blockquote h1:before {
-  content: "\201C";
+    content: "\201C";
 }
+
 blockquote h1:after {
-  content: "\201D";
+    content: "\201D";
 }
+
+.container {
+    width: 100%;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 0 15px;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Page
+ * ---------------------------------------------------------
+ */
+.page-container {
+    width: 100%;
+
+    background: #fdfdfd;
+    border: 1px solid #cbc9c7;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 30px 0 35px 0;
+    padding: 2.25% 4.5% 4.5% 4.5%;
+}
+
+pre.prettyprint {
+    font-size: 13px;
+
+    background: #f8f8f8;
+    line-height: 1.5em;
+    padding: 10px;
+
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.fluid-width-video-wrapper {
+    margin-bottom: 25px;
+}
+
+/* Header
+ * ------------------------------------------------------------
+ */
+
+body article header {
+    max-width: 600px;
+
+    border-left: solid 1px #eee;
+    margin: 0 auto;
+    padding: 10px;
+    padding-left: 50px;
+
+}
+
+#avatar {
+    width: 100px;
+    height: 250px;
+
+    display: block;
+    float: left;
+    position: relative;
+
+    text-align: center;
+    margin-top: 55px;
+
+    -webkit-border-radius: 95px;
+    -moz-border-radius: 95px;
+    border-radius: 95px;
+
+    overflow: hidden;
+}
+
+/* we live in a magical age people,
+ * a magical age ..
+ */
+@media (max-width: 1000px) {
+    #avatar {
+        display: none;
+    }
+}
+
+#header-nav nav {
+    width: auto;
+
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5;
+    border-top: 1px solid #f5f5f5;
+    margin: 0;
+    padding: 24px 0;
+}
+
+#header-nav nav ul {
+    line-height: 1.8em;
+    /* love google font */
+    font-family: "PT Sans", sans-serif;
+    font-size: 16px;
+
+    list-style: none;
+    list-style-image: none;
+}
+
+#header-nav nav ul li {
+    display: inline-block;
+    text-align: center;
+}
+
+#header-nav nav a {
+    color: #5d5d5d;
+    padding: 0 1.5em;
+}
+
+/*
+ * Posts
+ * ------- ------- ------- ------- ------- ------- -------
+ *
+ */
+ 
+.articles img {
+    max-width: 100%;
+    verticle-align: middle;
+}
+
+.articles p {
+    line-height: 1.5em;
+    margin: 0 0 25px;
+    font-family: "PT Sans", sans-serif;
+
+    color: #333;
+}
+
+.articles article {
+    margin-top: 48px;
+}
+
+.articles footer {
+    font-size: 11px;
+    font-style: normal;
+    font-family: "PT Sans", sans-serif;
+
+    text-align: center;
+    color: #5d5d5d;
+
+    margin-top: 25px;
+    border-top: 1px solid #f5f5f5;
+    padding-top: 12px;
+}
+
+.articles footer .delimiter {
+    padding: 0 12px;
+    color: #fdfdfd;
+}
+
+/*
+ * Navigation
+ *
+ * ===============================================================
+ */
+
+nav.pagination {
+    padding: 0;
+    height: 48px;
+    max-width: 1000px;
+    margin: 0 auto 72px;
+
+    font-family: "PT Sans", sans-serif;
+
+}
+
+nav.pagination ul {
+    display: block;
+    width: auto;
+    overflow: hidden;
+
+    list-style: none;
+    list-style-image: none;
+}
+
+nav.pagination ul li {
+    font-size: 20px;
+    color: #5d5d5d;
+    display: inline-block;
+    height: 48px;
+    line-height: 48px;
+    float: right;
+    text-align: right;
+    white-space: nowrap;
+}
+
+nav.pagination li.current {
+    float: left;
+    text-align: left;
+}
+
+nav.pagination li.prev {
+    padding-right: 24px;
+}
+
+nav.pagination li.next {
+    padding-left: 24px;
+}
+
+
