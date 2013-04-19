@@ -1,6 +1,6 @@
-{% extends "admin/base.html" %}
+{% extends "backend/base.html" %}
 {% block content %}
-<a href="#">Create new post</a>
+<a href="{{ url_for('backend.create_post')}}">Create new post</a>
 <section class="postlist">
     <table class="table table-striped table-bordered">
         <thead>
@@ -16,7 +16,7 @@
             <td>{{ post.pid }}</td>
             <td>{{ post.title }}</td>
             <td>{{ post.published }}</td>
-            <td>{{ post.created_date }}</td>
+            <td>{{ post.create_date|datetime }}</td>
             <td></td>
         </tr>
         {% endfor %}

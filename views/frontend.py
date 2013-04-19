@@ -10,7 +10,7 @@ frontend = Blueprint('frontend', __name__, static_folder='static', template_fold
 @frontend.route('/')
 @frontend.route('/<int:page>')
 def index(page=1):
-    posts = Post.query.order_by(Post.create_date.desc()).paginate(page, 1, False)
+    posts = Post.query.filter_by(published='t').order_by(Post.create_date.desc()).paginate(page, 1, False)
     return render_template("index.html", posts=posts)
 
 @frontend.route('/login', methods=['GET', 'POST'])
