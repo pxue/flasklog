@@ -4,14 +4,45 @@ from flask.ext.login import login_user, logout_user, login_required
 from utils import get_md_content
 from models import Post
 from auth import USER_NAMES, hash_pass
+from datetime import datetime
 
 frontend = Blueprint('frontend', __name__, static_folder='static', template_folder='templates')
 
 @frontend.route('/')
 @frontend.route('/<int:page>')
 def index(page=1):
-    posts = Post.query.filter_by(published='t').order_by(Post.create_date.desc()).paginate(page, 1, False)
+    posts = Post.query.filter_by(
+            published='t'
+        ).filter(
+            Post.create_date >= '%s-%s-01' % (
+                datetime.now().year,
+                datetime.now().month
+            )
+        ).order_by(
+            Post.create_date.desc()
+        ).paginate(page, 1, False)
+
     return render_template("index.html", posts=posts)
+
+
+@frontend.route('/about')
+def about():
+    return render_template("about.html")
+
+@frontend.route('/archive')
+def archive():
+
+    archives = Post.query.filter_by(
+            published='t'
+        ).filter(
+            Post.create_date < '%s-%s-01' % (
+                datetime.now().year,
+                datetime.now().month
+            )
+        ).order_by(
+            Post.create_date.desc()
+        )
+    return render_template("archive.html", archives=archives)
 
 @frontend.route('/login', methods=['GET', 'POST'])
 def login():
@@ -25,7 +56,7 @@ def login():
                 if login_user(USER_NAMES[username], remember=remember):
                     flash("You're logged in!")
                     return redirect(request.args.get("next") or
-                            url_for("admin.admin"))
+                            url_for("backend.backend_list"))
             else:
                 flash("Something is wrong")
         else:

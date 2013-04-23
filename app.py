@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from views.frontend import frontend
 from views.admin import backend
 from models import db
@@ -22,6 +22,10 @@ db.init_app(app)
 
 # login manager
 login_manager.setup_app(app)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
