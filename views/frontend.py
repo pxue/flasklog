@@ -12,7 +12,8 @@ frontend = Blueprint('frontend', __name__, static_folder='static', template_fold
 @frontend.route('/<int:page>')
 def index(page=1):
     posts = Post.query.filter_by(
-            published='t'
+            published='t',
+            author='Paul'
         ).filter(
             Post.create_date >= '%s-%s-01' % (
                 datetime.now().year,
@@ -21,8 +22,15 @@ def index(page=1):
         ).order_by(
             Post.create_date.desc()
         ).paginate(page, 1, False)
+    
+    motd = Post.query.filter_by(
+            permalink='motd',
+            published='t'
+        ).first()
 
-    return render_template("index.html", posts=posts)
+    print "THIS IS FUCKIGN MOTD",motd.permalink
+
+    return render_template("index.html", posts=posts, motd=motd)
 
 
 @frontend.route('/about')

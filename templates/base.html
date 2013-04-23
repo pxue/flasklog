@@ -9,6 +9,11 @@
     {% block extracss %}{% endblock %}
     <title>Paul Xue</title>
 </head>
+{% if motd %}
+<div id="alert">
+    <a href="#" class="alert">{{ motd.permalink|parsemd|safe }}</a>
+</div>
+{% endif %}
 <body>
     <div class="container">
         {% with messages = get_flashed_messages() %}
