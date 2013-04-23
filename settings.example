@@ -1,5 +1,8 @@
 import os
 
+HOST = "localhost"
+PORT = 1234
+
 class Config(object):
     PSQL_SERVER = "dbhost"
     PSQL_DATABASE = "dbname"
