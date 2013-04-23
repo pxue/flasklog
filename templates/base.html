@@ -11,7 +11,7 @@
 </head>
 {% if motd %}
 <div id="alert">
-    <a href="#" class="alert">{{ motd.permalink|parsemd|safe }}</a>
+    <a href="#alert" class="alert">{{ motd.permalink|parsemd|safe }}</a>
 </div>
 {% endif %}
 <body>
