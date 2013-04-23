@@ -28,8 +28,6 @@ def index(page=1):
             published='t'
         ).first()
 
-    print "THIS IS FUCKIGN MOTD",motd.permalink
-
     return render_template("index.html", posts=posts, motd=motd)
 
 
