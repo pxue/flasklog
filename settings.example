@@ -1,5 +1,24 @@
-COUCHDB_SERVER="couchdb-server-location"
-COUCHDB_DATABASE="your-data-base"
-OFFLINE=False
-ADMIN={'user':'admin-user', 'pass':'admin-pass-hash-sha256'}
-SECRET_KEY="some-secret-key"
+import os
+
+class Config(object):
+    PSQL_SERVER = "dbhost"
+    PSQL_DATABASE = "dbname"
+    DBADMIN = {'user': 'dbuser', 'password': 'dbpass'}
+    SQLALCHEMY_DATABASE_URI = "postgresql://%s:%s@%s/%s" % (
+        DBADMIN['user'], DBADMIN['password'], PSQL_SERVER, PSQL_DATABASE
+    )
+    SECRET_KEY = os.urandom(56)
+    ADMIN = {
+            "admin": (
+                u"admin",
+                "somepasswordhash",
+                "some-salkt"
+            )
+    }
+    SQLALCHEMY_ECHO = True
+    OFFLINE = False
+    DEBUG = True
+
+class DevelopmentConfig(Config):
+    SERVER_NAME = "flasklog.local:PORT"
+
