@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <section>
-    <article>
+    <article id="archive">
         <ul>
             {% for post in archives %}
-            <li>{{ post.title }}</li>
+            <li>
+                <time>{{ post.create_date|datetime  }}</time>
+                <a href="/posts/{{ post.permalink }}">{{ post.title }}</a>
+            </li>
             {% endfor %}
         </ul>
     </article>

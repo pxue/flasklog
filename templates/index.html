@@ -1,33 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="home">
-    <article>
-        <aside id="avatar">
-            <a href="/">
-                <image id="logo" src="{{ url_for('static', folder='images', filename="images/logo_small.jpg" )}}"></image>
-            </a>
-        </aside>
-        <header>
-            <h1>My name is Paul Xue. I'm a student at
-                University of Waterloo.
-                <a href="http://twitter.com/pxue"> Tweet </a>me.
-                <a href="http://www.linkedin.com/in/paulxue"> Hire </a>me.
-                This is my <a href="https://github.com/pxue"> Github</a>.
-            </h1>
-        </header>
-        <!--I feel like this should be in the header tag-->
-        <div id="header-nav">
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="/">Blog</a></li>
-                    <li><a href="#" title="coming soon!">Sections</a></li>
-                    <li><a href="#">Archive</a></li>
-                    <li><a href="#" title="coming soon!">About</a></li>
-                </ul>
-            </nav>
-        </div>
-    </article>
-</section>
 <section class="articles">
     {% for post in posts.items %}
     <article>

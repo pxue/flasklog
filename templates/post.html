@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="articles">
+    <article>
+        {{ post.permalink|parsemd|safe }}
+    </article>
+    <footer class="article-meta">
+        <div>
+            <span class="date">{{ post.create_date|datetime }}</span>
+            <span class="delimiter">/</span>
+            <span class="author">
+                <span class="delimiter"></span>
+                {{ post.author }}
+            </span>
+        </div>
+    </footer>
+</section>
+{% endblock %}

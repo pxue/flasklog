@@ -30,6 +30,18 @@ def index(page=1):
 
     return render_template("index.html", posts=posts, motd=motd)
 
+@frontend.route('/posts/<slug>')
+def post(slug):
+
+    post = Post.query.filter_by(
+            published='t',
+            author='Paul'
+        ).filter(
+            Post.permalink == slug
+        ).first()
+
+    return render_template("post.html", post=post)
+
 
 @frontend.route('/about')
 def about():
