@@ -12,6 +12,7 @@ app.config.from_object(settings.Config)
 # blueprint
 app.register_blueprint(frontend, url_prefix="")
 app.register_blueprint(backend)
+app.register_blueprint(extra)
 
 # jinja filters
 app.jinja_env.filters['datetime'] = filter_datetime

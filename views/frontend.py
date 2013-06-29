@@ -6,7 +6,8 @@ from models import Post
 from auth import USER_NAMES, hash_pass
 from datetime import datetime
 
-frontend = Blueprint('frontend', __name__, static_folder='static', template_folder='templates')
+frontend = Blueprint('frontend', __name__, static_folder='static',
+        template_folder='templates')
 
 @frontend.route('/')
 @frontend.route('/<int:page>')

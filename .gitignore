@@ -31,3 +31,6 @@ settings.py
 
 # ignore media files
 *.jpg
+
+# ignore mac osx files
+.DS_Store
