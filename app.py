@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from views.frontend import frontend
 from views.admin import backend
+from views.extra import extra
 from models import db
 from utils import filter_datetime, get_md_content
 from auth import login_manager
