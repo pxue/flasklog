@@ -12,6 +12,6 @@ Let's graph Weekday vs Hour of day that I usually take the train, this would sho
 
 Unfortunately, I have only one month of data (d'oh!), nontheless, it should be enough to demonstrate the point.
 
-<iframe marginwidth="0" marginheight="0" scrolling="0" src="localhost:5001/extra/d41d8cd98f00b204e9800998ecf8427e"></iframe>
+<iframe marginwidth="0" marginheight="0" scrolling="0" style="width:100%; max-width:100%; border:0px; margin-left:-20px; height:440px;" src="/extra/d41d8cd98f00b204e9800998ecf8427e"></iframe>
 
 Pretty interesting results, having flexible working hours, I usually take the train to work at 8am. The more interesting data is when I come home. It's not surprising that I hang out late on Fridays, but what's interesting is that Tuesday is also a party day for me! What a rebel!

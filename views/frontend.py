@@ -1,3 +1,4 @@
+from werkzeug.exceptions import abort
 from flask import (Flask, render_template, Blueprint, request,
         flash, redirect, url_for)
 from flask.ext.login import login_user, logout_user, login_required
@@ -35,11 +36,13 @@ def index(page=1):
 def post(slug):
 
     post = Post.query.filter_by(
-            published='t',
+            #published='t',
             author='Paul'
         ).filter(
             Post.permalink == slug
         ).first()
+    if not post:
+        abort(404)
 
     return render_template("post.html", post=post)
 

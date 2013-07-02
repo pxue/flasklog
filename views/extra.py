@@ -5,4 +5,4 @@ extra = Blueprint('extra', __name__, static_folder='static',
 
 @extra.route('/extra/d41d8cd98f00b204e9800998ecf8427e')
 def gotrans():
-    return render_template('gotrans.html')
+    return render_template('extra/gotrans.html')
