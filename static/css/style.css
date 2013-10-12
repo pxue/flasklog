@@ -185,7 +185,7 @@ body article header {
  
 .articles img {
     max-width: 100%;
-    verticle-align: middle;
+    vertical-align: middle;
 }
 
 .articles p {
@@ -244,6 +244,34 @@ body article header {
     width: 120px;
     text-align: right;
     color: #aaa;
+}
+
+
+/*
+ *
+ * About
+ *
+ * ===============================================================
+ */
+
+#about #portrait {
+    display: block;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 450px;
+    border-radius: 100%;
+}
+
+#about .articles {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#about p {
+    text-align: center;
 }
 
 /*

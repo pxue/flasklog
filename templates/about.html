@@ -1,1 +1,19 @@
 {% extends "base.html" %}
+{% block content %}
+<section id="about">
+    <article>
+        <image id="portrait" src="{{ url_for('static', folder='images', filename="images/profile_small.jpg" )}}"></image>
+    </article>
+    <article class="articles">
+        <p>Hello.</p>
+        <p>Welcome to my blog.</p>
+        <p>My name is Paul Xue. I was born in Shanghai and grew up in
+        Burlington, Ontario. I am a software developer with an Electrical
+        Engineering background. I currently live in Toronto and work for
+        a wonderful company called Chango on some very exciting things. My
+        favorite drink is a double of Glenmorangie on the rock. When I have time
+        off I like to travel the world.</p>
+        <p>Thanks for reading.</p>
+    </article>
+</section>
+{% endblock %}

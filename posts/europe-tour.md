@@ -28,8 +28,6 @@ I recently took a three week vacation travelling Europe.
 
 ![europe](/static/images/europe/eu13.jpg)
 
-![europe](/static/images/europe/eu13.jpg)
-
 ![europe](/static/images/europe/eu14.jpg)
 
 ![europe](/static/images/europe/eu15.jpg)
