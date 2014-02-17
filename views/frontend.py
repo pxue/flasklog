@@ -16,11 +16,11 @@ def index(page=1):
     posts = Post.query.filter_by(
             published='t',
             author='Paul'
-        ).filter(
-            Post.create_date >= '%s-%s-01' % (
-                datetime.now().year,
-                datetime.now().month
-            )
+        #).filter(
+            #Post.create_date >= '%s-%s-01' % (
+                #datetime.now().year,
+                #datetime.now().month
+            #)
         ).order_by(
             Post.create_date.desc()
         ).paginate(page, 1, False)
