@@ -1,3 +1,5 @@
+{% extends "backend/base.html" %}
+{% block content %}
 {% macro render_field(field) %}
   <dt>{{ field.label }}
   <dd>{{ field(**kwargs)|safe }}
@@ -17,8 +19,14 @@
     {{ render_field(form.title) }}
     {{ render_field(form.author) }}
     {{ render_field(form.published) }}
-    {{ render_field(form.permalink) }}
+    {{ render_field(form.permalink, class="readonly", readonly=true) }}
+    <div hidden="true">{{ render_field(form.content) }}</div>
+    <div id="epiceditor" name="post_content"></div>
   </dl>
-  <p><input type=submit value=Register>
+  <p><input type="submit" value="Submit"></p>
 </form>
+{% endblock %}
 
+{% block extrajs %}
+<script src="{{ url_for('static', filename='js/epiceditor.min.js') }}"></script>
+{% endblock %}

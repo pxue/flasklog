@@ -17,7 +17,7 @@
             <td>{{ post.title }}</td>
             <td>{{ post.published }}</td>
             <td>{{ post.create_date|datetime }}</td>
-            <td></td>
+            <td><a href="{{ url_for('backend.edit_post', pid=post.pid) }}">edit</a></td>
         </tr>
         {% endfor %}
         </tbody>

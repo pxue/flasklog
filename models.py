@@ -1,6 +1,7 @@
+import os, codecs
 from datetime import datetime
 from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.wtf import Form, BooleanField, TextField, validators
+from flask.ext.wtf import Form, BooleanField, TextField, TextAreaField, validators
 
 db = SQLAlchemy()
 
@@ -21,6 +22,20 @@ class Post(db.Model):
         self.permalink = permalink
         self.create_date = datetime.now()
 
+    @property
+    def content(self):
+        path = "%s/posts/%s.md" % (os.getcwd(), self.permalink)
+        return codecs.open(path, mode="r", encoding="utf-8").read()
+
+    def post_form(self, request_form):
+        form = PostForm(request_form)
+        form.title.data = self.title
+        form.author.data = self.author
+        form.published.data = self.published
+        form.permalink.data = self.permalink
+        form.content.data = self.content
+        return form
+
     def __repr__(self):
         return '<Post %r>' % self.title
     
@@ -31,3 +46,4 @@ class PostForm(Form):
     author = TextField('Author', [validators.Length(min=4, max=25)])
     published = BooleanField('Publish')
     permalink = TextField('Permanent Link', [validators.Length(min=10, max=60)])
+    content = TextAreaField('Content')
