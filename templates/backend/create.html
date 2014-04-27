@@ -16,8 +16,8 @@
 <form method="POST" action="">
   {{ form.hidden_tag() }}
   <dl>
-    {{ render_field(form.title) }}
-    {{ render_field(form.author) }}
+    {{ render_field(form.title, autocomplete=off) }}
+    {{ render_field(form.author, autocomplete=off) }}
     {{ render_field(form.published) }}
     {{ render_field(form.permalink, class="readonly", readonly=true) }}
     <div hidden="true">{{ render_field(form.content) }}</div>
