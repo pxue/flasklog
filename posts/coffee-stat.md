@@ -13,13 +13,13 @@ aggregated all to two simple graphs below.
 
 
 By Coffee Shops:
-<iframe marginwidth="0" marginheight="0" scrolling="0" style="width:100%; max-width:100%; border:0px; margin-left:-20px; height:440px;" src="/extra/d802623db0ffcef9d9fd4f297ad23dcca/shop"></iframe>
+<iframe marginwidth="0" marginheight="0" scrolling="0" style="width:100%; max-width:100%; border:0px; margin-left:-20px; height:410px;" src="/extra/802623db0ffcef9d9fd4f297ad23dcca/shop"></iframe>
 
 Starbucks is the clear winner, the next two are Timmy's and Williams (both
 frequent stops during my last year in school).
 
 By Day of the week:
-<iframe marginwidth="0" marginheight="0" scrolling="0" style="width:100%; max-width:100%; border:0px; margin-left:-20px; height:440px;" src="/extra/d802623db0ffcef9d9fd4f297ad23dcca/day"></iframe>
+<iframe marginwidth="0" marginheight="0" scrolling="0" style="width:100%; max-width:100%; border:0px; margin-left:-20px; height:440px;" src="/extra/802623db0ffcef9d9fd4f297ad23dcca/day"></iframe>
 
 A more interesting graph is break down of my coffee habit by day of the week. It
 looks like I spend about the same amount each day, except Sundays. A localized
